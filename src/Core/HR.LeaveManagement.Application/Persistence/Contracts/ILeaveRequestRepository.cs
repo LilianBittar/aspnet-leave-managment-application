@@ -1,4 +1,5 @@
-namespace HR.LeaveManagement.Application.Persistance.Contracts;
+using HR.LeaveManagement.Domain;
+namespace HR.LeaveManagement.Application.Contracts.Persistence;
 
 public interface ILeaveRequestRepository : IGeneticRepository<LeaveRequest>
 {

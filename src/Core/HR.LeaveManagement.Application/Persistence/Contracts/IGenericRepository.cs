@@ -1,11 +1,11 @@
-namespace HR.LeaveManagement.Application.Persistance.Contracts;
+namespace HR.LeaveManagement.Application.Contracts.Persistence;
 
 public interface IGeneticRepository<T> where T : class
 {
     Task<T> Get(int id);
     Task<IRradOnlyList<T>> GetAll();
     Task<T> Add(T entity);
-    Task<T> Update(T entity);
-    Task<T> Delete(T entity);
+    Task Update(T entity);
+    Task Delete(T entity);
 
 }

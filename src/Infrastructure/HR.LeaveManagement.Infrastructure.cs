@@ -1,3 +1,0 @@
-namespace HR.LeaveManagement.Application;
-
-

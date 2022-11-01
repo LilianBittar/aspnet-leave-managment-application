@@ -1,24 +1,46 @@
+using AutoMapper;
+using HR.LeaveManagement.Application.Contracts.Persistence;
+using HR.LeaveManagement.Application.DTOs.LeaveAllocation.Validators;
+using HR.LeaveManagement.Application.Features.LeaveAllocation.Requests.Commands;
+using HR.LeaveManagement.Application.Response;
+using MediatR;
+
 namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Handlers.Commands;
 
- public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAllocationCommand, int>
+ public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAllocationCommand, BaseCommandResponse>
     {
-        private readonly ILeaveAllocationRepository _leaveAllocationRepository;
-        private readonly IMapper _mapper;
+        private readonly IMapper mapper;
+        private readonly ILeaveAllocationRepository leaveAllocationRepository;
+        private readonly ILeaveTypeRepository leaveTypeRepository;
 
-        public CreateLeaveAllocationCommandHandler(
-           ILeaveAllocationRepository leaveAllocationRepository,
-            IMapper mapper)
+        public CreateLeaveAllocationCommandHandler(IMapper mapper, ILeaveAllocationRepository leaveAllocationRepository, ILeaveTypeRepository leaveTypeRepository)
+    {
+        this.mapper = mapper;
+        this.leaveAllocationRepository = leaveAllocationRepository;
+        this.leaveTypeRepository = leaveTypeRepository;
+    }
+
+        public async Task<BaseCommandResponse> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)
+    {
+        var response = new BaseCommandResponse();
+        var validator = new CreateLeaveAllocationDtoValidator(leaveTypeRepository);
+        var validationResult = await validator.ValidateAsync(request.CreateLeaveAllocationDto);
+
+        if (validationResult.IsValid)
         {
-            _leaveAllocationRepository = leaveAllocationRepository;
-            _mapper = mapper;
-        }
+            var leaveAllocation = mapper.Map<LeaveAllocation>(request.CreateLeaveAllocationDto);
+            leaveAllocation = await leaveAllocationRepository.Add(leaveAllocation);
 
-        public async Task<int> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)
+            response.Id = leaveAllocation.Id;
+            response.Success = true;
+            response.Message = "Allocations Successful";
+        }
+        else
         {
-            var leaveAllocation = _mapper.Map<LeaveAllocation>(request.LeaveAllocationDto);
-
-           leaveAllocation = await _leaveAllocationRepository.Add(leaveAllocation);
-
-           return leaveAllocation.Id;
+            response.Success = false;
+            response.Message = "Allocations Failed!";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
+        return response;
+    }
     }

@@ -1,3 +1,8 @@
+using HR.LeaveManagement.Application.Contracts.Persistence;
+using HR.LeaveManagement.Persistence.Repositories;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace HR.LeaveManagement.Persistence;
 
     public static class PersistenceServicesRegistration

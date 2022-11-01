@@ -1,3 +1,9 @@
+using AutoMapper;
+using HR.LeaveManagement.Application.DTOs.LeaveRequest.Validators;
+using HR.LeaveManagement.Application.Exceptions;
+using HR.LeaveManagement.Application.Features.LeaveRequest.Requests.Commands;
+using MediatR;
+
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Commands;
 
   public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, Unit>

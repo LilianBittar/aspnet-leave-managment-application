@@ -1,22 +1,22 @@
+using AutoMapper;
+using HR.LeaveManagement.Application.Contracts.Persistence;
+using HR.LeaveManagement.Application.DTOs.LeaveRequest;
+using HR.LeaveManagment.Application.Features.LeaveRequest.Requests.Queries;
+using MediatR;
+
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Queries;
 
   public class GetLeaveRequestListRequestHandler : IRequestHandler<GetLeaveRequestListRequest, List<LeaveRequestListDto>>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IUserService _userService;
+      
 
-        public GetLeaveRequestListRequestHandler(ILeaveRequestRepository leaveRequestRepository,
-            IMapper mapper,
-            IHttpContextAccessor httpContextAccessor,
-            IUserService userService)
+        public GetLeaveRequestListRequestHandler(ILeaveRequestRepository leaveRequestRepository, IMapper mapper)
         {
             _leaveRequestRepository = leaveRequestRepository;
             _mapper = mapper;
-            this._httpContextAccessor = httpContextAccessor;
-            this._userService = userService;
-        }
+            
 
         public async Task<List<LeaveRequestListDto>> Handle(GetLeaveRequestListRequest request, CancellationToken cancellationToken)
         {
@@ -51,3 +51,9 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Queries;
             
         }
     }
+
+    public Task<List<LeaveRequestListDto>> Handle(GetLeaveRequestListRequest request, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
+}

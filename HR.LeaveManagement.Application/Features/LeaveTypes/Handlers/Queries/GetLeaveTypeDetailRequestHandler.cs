@@ -1,3 +1,9 @@
+using AutoMapper;
+using HR.LeaveManagement.Application.Contracts.Persistence;
+using HR.LeaveManagement.Application.DTOs.LeaveType;
+using HR.LeaveManagement.Application.Features.LeaveTypes.Requests.Queries;
+using MediatR;
+
 namespace HR.LeaveManagment.Application.Features.LeaveTypes.Handlers.Queries;
 
   public class GetLeaveTypeDetailRequestHandler : IRequestHandler<GetLeaveTypeDetailRequest, LeaveTypeDto>

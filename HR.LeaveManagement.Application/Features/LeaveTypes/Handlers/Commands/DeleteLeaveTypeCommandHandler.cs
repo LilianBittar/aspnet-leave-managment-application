@@ -1,13 +1,18 @@
+using AutoMapper;
+using HR.LeaveManagement.Application.Exceptions;
+using HR.LeaveManagment.Application.Features.LeaveTypes.Requests.Commands;
+using MediatR;
+
 namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands;
 
  public class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand>
     {
-        private readonly IUnitOfWork _unitOfWork;
+    
         private readonly IMapper _mapper;
 
-        public DeleteLeaveTypeCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public DeleteLeaveTypeCommandHandler(IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            
             _mapper = mapper;
         }
 

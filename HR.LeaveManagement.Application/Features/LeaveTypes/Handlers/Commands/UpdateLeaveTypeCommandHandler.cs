@@ -1,13 +1,20 @@
+
+using AutoMapper;
+using HR.LeaveManagement.Application.DTOs.LeaveType.Validators;
+using HR.LeaveManagement.Application.Exceptions;
+using HR.LeaveManagment.Application.Features.LeaveTypes.Requests.Commands;
+using MediatR;
+
 namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands;
 
     public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeCommand, Unit>
     {
-        private readonly IUnitOfWork _unitOfWork;
+       
         private readonly IMapper _mapper;
 
-        public UpdateLeaveTypeCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateLeaveTypeCommandHandler( IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+           
             _mapper = mapper;
         }
 

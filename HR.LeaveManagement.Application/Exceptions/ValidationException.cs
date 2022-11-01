@@ -1,3 +1,5 @@
+using FluentValidation.Results;
+
 namespace HR.LeaveManagement.Application.Exceptions;
 
   public class ValidationException : ApplicationException

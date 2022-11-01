@@ -1,3 +1,7 @@
+using System.Reflection;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace HR.LeaveManagement.Application;
 
 public static class ApplicationServicesRegistration
@@ -6,7 +10,7 @@ public static class ApplicationServicesRegistration
       IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-        services.AddMediaterR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(Assembly.GetExecutingAssembly());
 
         return services;
     }

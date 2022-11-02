@@ -7,12 +7,12 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Commands
 
  public class DeleteLeaveRequestCommandHandler : IRequestHandler<DeleteLeaveRequestCommand>
     {
-        private readonly IUnitOfWork _unitOfWork;
+      
         private readonly IMapper _mapper;
 
-        public DeleteLeaveRequestCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public DeleteLeaveRequestCommandHandler( IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+           
             _mapper = mapper;
         }
 

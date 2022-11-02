@@ -1,6 +1,7 @@
 using AutoMapper;
 using HR.LeaveManagement.Application.DTOs.LeaveType.Validators;
 using HR.LeaveManagement.Application.Response;
+using HR.LeaveManagement.Domain;
 using HR.LeaveManagment.Application.Features.LeaveTypes.Requests.Commands;
 using MediatR;
 

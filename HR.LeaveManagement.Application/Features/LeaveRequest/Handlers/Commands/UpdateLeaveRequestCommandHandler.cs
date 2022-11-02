@@ -8,14 +8,14 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Handlers.Commands
 
   public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, Unit>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        
         private readonly IMapper _mapper;
 
         public UpdateLeaveRequestCommandHandler(
-            IUnitOfWork unitOfWork,
+           
              IMapper mapper)
         {
-            this._unitOfWork = unitOfWork;
+          
             _mapper = mapper;
         }
 

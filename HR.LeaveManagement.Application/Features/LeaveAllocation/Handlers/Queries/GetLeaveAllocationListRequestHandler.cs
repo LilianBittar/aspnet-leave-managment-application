@@ -10,18 +10,15 @@ public class GetLeaveAllocationListRequestHandler : IRequestHandler<GetLeaveAllo
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IUserService _userService;
+
 
         public GetLeaveAllocationListRequestHandler(ILeaveAllocationRepository leaveAllocationRepository,
-             IMapper mapper,
-             IHttpContextAccessor httpContextAccessor,
-            IUserService userService)
+             IMapper mapper
+            )
         {
             _leaveAllocationRepository = leaveAllocationRepository;
             _mapper = mapper;
-            this._httpContextAccessor = httpContextAccessor;
-            this._userService = userService;
+        
         }
     public async Task<List<LeaveAllocationDto>> Handle(GetLeaveAllocationListRequest request, CancellationToken cancellationToken)
         {

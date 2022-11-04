@@ -18,4 +18,9 @@ public class CreateLeaveAllocationDtoValidator : AbstractValidator<CreateLeaveAl
             return doesExist;
         }).WithMessage("{PropertyName} does not exist.");
     }
+
+    internal Task ValidateAsync(object createLeaveAllocationDto)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -4,7 +4,7 @@ using HR.LeaveManagement.Application.Contracts.Persistence;
 
 namespace HR.LeaveManagement.Persistence.Repositories;
 
-public class LeaveRequestRepository : GenericRepository<LeaveRequest>, ILeaveAllocationRepository
+public class LeaveRequestRepository : GenericRepository<LeaveRequest>, ILeaveRequestRepository
 {
     private readonly LeaveManagementDbContext dbContext;
 
@@ -31,10 +31,11 @@ public class LeaveRequestRepository : GenericRepository<LeaveRequest>, ILeaveAll
 
     public async Task ChangeApprovalStatus(LeaveRequest leaveRequest, bool? ApprovalStatus)
     {
-        leaveRequest.Approved = approvalStatus;
+        leaveRequest.Approved = ApprovalStatus;
         dbContext.Entry(leaveRequest).State = EntityState.Modified;
         await dbContext.SaveChangesAsync();
 
     }
+
 
 }

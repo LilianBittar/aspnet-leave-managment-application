@@ -5,10 +5,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequest.Requests.Commands
 
  public class UpdateLeaveRequestCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
-
-        public UpdateLeaveRequestDto LeaveRequestDto { get; set; }
-
-        public ChangeLeaveRequestApprovalDto ChangeLeaveRequestApprovalDto { get; set; }
-
+       public int Id { get; set; }
+       public UpdateLeaveRequestDto UpdateLeaveRequestDto { get; set; }
+       public ChangeLeaveRequestApprovalDto ChangeLeaveRequestApprovalDto { get; set; }
     }

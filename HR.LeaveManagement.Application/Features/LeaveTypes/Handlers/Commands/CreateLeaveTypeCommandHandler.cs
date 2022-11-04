@@ -1,4 +1,5 @@
 using AutoMapper;
+using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Application.DTOs.LeaveType.Validators;
 using HR.LeaveManagement.Application.Response;
 using HR.LeaveManagement.Domain;
@@ -11,37 +12,35 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands;
     {
       
         private readonly IMapper _mapper;
-
-        public CreateLeaveTypeCommandHandler( IMapper mapper)
+       private readonly ILeaveTypeRepository leaveTypeRepository;
+        public CreateLeaveTypeCommandHandler( IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
         {
             
-            _mapper = mapper;
+            this._mapper = mapper;
+            this.leaveTypeRepository = leaveTypeRepository;
         }
 
         public async Task<BaseCommandResponse> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
             var validator = new CreateLeaveTypeDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.LeaveTypeDto);
+            var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDto);
 
-            if (validationResult.IsValid == false)
-            {
-                response.Success = false;
-                response.Message = "Creation Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-            }
-            else
-            {
-                var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);
+        if (validationResult.IsValid)
+        {
+            var leaveType = _mapper.Map<LeaveType>(request.CreateLeaveTypeDto);
+            leaveType = await leaveTypeRepository.Add(leaveType);
 
-                leaveType = await _unitOfWork.LeaveTypeRepository.Add(leaveType);
-                await _unitOfWork.Save();
-
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Id = leaveType.Id;
-            }
-
-            return response;
+            response.Success = true;
+            response.Message = "Creation Successful";
+            response.Id = leaveType.Id;
+        }
+        else
+        {
+            response.Success = false;
+            response.Message = "Creation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }
+        return response;
         }
     }

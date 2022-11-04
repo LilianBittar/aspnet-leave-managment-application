@@ -1,9 +1,10 @@
 using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR.LeaveManagement.Persistence.Repositories;
 
-public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILeaveAllocationRepository
+public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>,  ILeaveAllocationRepository
 {
     
     private readonly LeaveManagementDbContext dbContext;
@@ -12,6 +13,12 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
     {
         this.dbContext = dbContext;
     }
+
+    public Task<List<LeaveAllocation>> GetLeaveAllocationsWithDetails()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<LeaveAllocation> GetLeaveAllocationWithDetails(int id)
     {
         var leaveAllocation = await dbContext.LeaveAllocations

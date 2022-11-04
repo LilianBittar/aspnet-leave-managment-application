@@ -1,4 +1,5 @@
 ﻿
+using HR.LeaveManagement.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace HR.LeaveManagement.Persistence;

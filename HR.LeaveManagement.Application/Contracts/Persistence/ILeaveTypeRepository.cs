@@ -2,7 +2,7 @@ using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.Contracts.Persistence;
 
-public interface ILeaveTypeRepository : IGeneticRepository<LeaveType>
+public interface ILeaveTypeRepository : IGenericRepository<LeaveType>
 {
     
 }

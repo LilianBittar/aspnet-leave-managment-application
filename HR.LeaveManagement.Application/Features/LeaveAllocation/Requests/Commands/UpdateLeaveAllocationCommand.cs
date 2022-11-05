@@ -8,7 +8,7 @@ public class UpdateLeaveAllocationCommand : IRequest<Unit>
     {
 
         public int Id {get; set;}
-        public UpdateLeaveAllocationDto LeaveAllocationDto { get; set; }
+        public UpdateLeaveAllocationDto UpdateLeaveAllocationDto { get; set; }
 
     
     }

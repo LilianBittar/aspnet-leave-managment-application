@@ -28,7 +28,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Handlers.Comma
 
         if (validationResult.IsValid)
         {
-            var leaveAllocation = mapper.Map<LeaveAllocation>(request.CreateLeaveAllocationDto);
+            var leaveAllocation = mapper.Map<HR.LeaveManagement.Domain.LeaveAllocation>(request.CreateLeaveAllocationDto);
             leaveAllocation = await leaveAllocationRepository.Add(leaveAllocation);
 
             response.Id = leaveAllocation.Id;

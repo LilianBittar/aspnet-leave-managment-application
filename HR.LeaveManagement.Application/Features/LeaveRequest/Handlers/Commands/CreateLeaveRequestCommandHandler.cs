@@ -33,7 +33,7 @@ public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveReque
 
         if (validationResult.IsValid)
         {
-            var leaveRequest = mapper.Map<LeaveRequest>(request.CreateLeaveRequestDto);
+            var leaveRequest = mapper.Map<HR.LeaveManagement.Domain.LeaveRequest>(request.CreateLeaveRequestDto);
             leaveRequest = await leaveRequestRepository.Add(leaveRequest);
 
             response.Success = true;

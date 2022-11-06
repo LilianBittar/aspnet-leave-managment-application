@@ -4,6 +4,7 @@ using HR.LeaveManagement.Application.DTOs.LeaveAllocation;
 using HR.LeaveManagement.Application.Features.LeaveAllocation.Requests.Queries;
 using MediatR;
 using HR.LeaveManagement.Domain;
+using HR.LeaveManagement.Application.Contracts.Identity;
 
 namespace HR.LeaveManagment.Application.Features.LeaveAllocation.Handlers.Queries;
 

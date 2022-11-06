@@ -37,5 +37,16 @@ public class LeaveRequestRepository : GenericRepository<LeaveRequest>, ILeaveReq
 
     }
 
+    public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails()
+    {
+        var leaveRequest = await dbContext.LeaveRequests
+        .Include(p => p.LeaveType)
+        .ToListAsync();
+        return leaveRequest;
+    }
 
+    public async Task<List<LeaveRequest>> GetLeaveRequestsWithDetails(string userId)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace HR.LeaveManagement.Identity;
+﻿using HR.LeaveManagement.Application.Contracts.Identity;
+
+namespace HR.LeaveManagement.Identity;
 public class IdentityServicesRegistration
 {
      public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)

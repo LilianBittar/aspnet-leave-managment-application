@@ -3,8 +3,9 @@ using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Application.DTOs.LeaveAllocation;
 using HR.LeaveManagement.Application.Features.LeaveAllocation.Requests.Queries;
 using MediatR;
-using HR.LeaveManagement.Domain;
 using HR.LeaveManagement.Application.Contracts.Identity;
+using Microsoft.AspNetCore.Http;
+using HR.LeaveManagement.Application.Constants;
 
 namespace HR.LeaveManagment.Application.Features.LeaveAllocation.Handlers.Queries;
 
@@ -13,7 +14,7 @@ public class GetLeaveAllocationListRequestHandler : IRequestHandler<GetLeaveAllo
     private readonly ILeaveAllocationRepository _leaveAllocationRepository;
     private readonly IMapper _mapper;
     private readonly IHttpContextAccessor _httpContextAccessor;
-
+    private readonly IUserService _userService;
     public GetLeaveAllocationListRequestHandler(ILeaveAllocationRepository leaveAllocationRepository,
          IMapper mapper,
          IHttpContextAccessor httpContextAccessor,

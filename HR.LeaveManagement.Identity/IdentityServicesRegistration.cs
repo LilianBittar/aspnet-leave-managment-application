@@ -1,7 +1,17 @@
-﻿using HR.LeaveManagement.Application.Contracts.Identity;
+﻿using System.Text;
+using HR.LeaveManagement.Application.Contracts.Identity;
+using HR.LeaveManagement.Application.Models.Identity;
+using HR.LeaveManagement.Identity.Models;
+using HR.LeaveManagement.Identity.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace HR.LeaveManagement.Identity;
-public class IdentityServicesRegistration
+public static class IdentityServicesRegistration
 {
      public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)
     {

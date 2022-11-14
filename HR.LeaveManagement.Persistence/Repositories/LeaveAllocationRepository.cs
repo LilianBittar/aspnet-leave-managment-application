@@ -14,7 +14,22 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>,  IL
         this.dbContext = dbContext;
     }
 
+    public Task AddAllocations(List<LeaveAllocation> allocations)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> AllocationExists(string userId, int leaveTypeId, int period)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<List<LeaveAllocation>> GetLeaveAllocationsWithDetails()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<LeaveAllocation>> GetLeaveAllocationsWithDetails(string userId)
     {
         throw new NotImplementedException();
     }
@@ -34,5 +49,9 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>,  IL
         .ToListAsync();
         return leaveAllocations;
     }
-    
+
+    public Task<LeaveAllocation> GetUserAllocations(string userId, int leaveTypeId)
+    {
+        throw new NotImplementedException();
+    }
 }

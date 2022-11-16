@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Identity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.MVC", "HR.LeaveManagement.MVC\HR.LeaveManagement.MVC.csproj", "{54E01B43-0D59-4FA0-A86C-C3D4A14C22DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Application.UnitTests", "HR.LeaveManagement.Application.UnitTests\HR.LeaveManagement.Application.UnitTests.csproj", "{4EE4CE0E-F735-4CD7-9D4B-FA0E85838A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{54E01B43-0D59-4FA0-A86C-C3D4A14C22DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54E01B43-0D59-4FA0-A86C-C3D4A14C22DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54E01B43-0D59-4FA0-A86C-C3D4A14C22DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE4CE0E-F735-4CD7-9D4B-FA0E85838A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE4CE0E-F735-4CD7-9D4B-FA0E85838A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE4CE0E-F735-4CD7-9D4B-FA0E85838A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE4CE0E-F735-4CD7-9D4B-FA0E85838A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

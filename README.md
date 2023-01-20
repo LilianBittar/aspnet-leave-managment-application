@@ -3,12 +3,12 @@
 
 # Architecture:
 <p align="center">
-    <img src="asset/architecture.jpg" alt="Preview">
+    <img src="assets/architecture.jpg" alt="Preview">
 </p>
 
 # Application preview:
 <p align="center">
-    <img src="asset/app.jpg" alt="Preview">
+    <img src="assets/app.jpg" alt="Preview">
 </p>
 
 # Aquired Skils:
